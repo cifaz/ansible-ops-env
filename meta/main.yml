@@ -17,6 +17,9 @@ dependencies:
   - geerlingguy.gitlab
   - geerlingguy.nginx
   - sansible.openvpn
+  - cifaz.gitlab-zh
+  - cifaz.jumpserver
+  - cifaz.zentao
 galaxy_info:
   author: ccz
   description: 通用的内部测试环境建立工具
