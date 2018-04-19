@@ -1,4 +1,5 @@
 #!/bin/bash -l
+# centos环境初始化(目录/依赖/时间)
 # /app为标准运行目录
 # bak为备份目录 data数据存放 www静态页面/项目 server运行工程 down下载 deploy部署/脚本目录
 
