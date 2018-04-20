@@ -3,7 +3,7 @@
 
 ansible-galaxy install andrewrothstein.java-oracle
 ansible-galaxy install andrewrothstein.kafka
-ansible-galaxy install AnsibleShipyard.ansible-zookeeper
+ansible-galaxy install wtanaka.apache-kafka
 ansible-galaxy install ChristopherDavenport.universal-java
 ansible-galaxy install zaxos.tomcat-ansible-role
 ansible-galaxy install cifaz.generate-ssh-key
