@@ -1,0 +1,257 @@
+
+# 是否开启
+# 生成sshkey
+enable_generate_ssh_key: false
+enable_push_ssh_key: true
+enable_oracle_java: true
+enable_dnsmasq: true
+enable_gitlab: true
+enable_gitlab_zh: true
+enable_jenkins: true
+enable_zentao: true
+enable_jumpserver: true
+enable_openvpn: true
+enable_nginx: true
+enable_xwiki: true
+enable_nexus3: true
+enable_nodejs: true
+enable_kafka: true
+enable_zookeeper: true
+enable_redis: true
+enable_mongodb: true
+enable_mysql: true
+enable_tomcat: true
+
+# 推送ssh-key到各机器
+ssh_key_dir: /app/data/ssh-keys
+ssh_key_priv_name: id_rsa
+ssh_key_pub_name: id_rsa.pub
+
+# java环境
+java_version: 8
+java_subversion: 161
+java_build: 12
+#jdk_tarball_hash: 2f38c3b165be4555a1fa6e98c45e0808
+java_remove_download: false
+java_set_javahome: true
+
+# dns服务器dnsmasq
+dnsmasq_listen_address: 192.168.19.254,127.0.0.1
+dnsmasq_bogus_priv: false
+
+# nginx
+nginx_error_log: "/var/log/nginx/error.log warn"
+nginx_access_log: "/var/log/nginx/access.log main buffer=16k flush=2m"
+nginx_vhosts: []
+# Example vhost below, showing all available options:
+# - listen: "80" # default: "80"
+#   server_name: "example.com" # default: N/A
+#   root: "/var/www/example.com" # default: N/A
+#   index: "index.html index.htm" # default: "index.html index.htm"
+#   filename: "example.com.conf" # Can be used to set the filename of the vhost file.
+#
+#   # Properties that are only added if defined:
+#   server_name_redirect: "www.example.com" # default: N/A
+#   error_page: ""
+#   access_log: ""
+#   error_log: ""
+#   extra_parameters: "" # Can be used to add extra config blocks (multiline).
+#   template: "" # Can be used to override the `nginx_vhost_template` per host.
+#   state: "absent" # To remove the vhost configuration.
+
+# tomcat
+tomcat_version: 8.5.30
+tomcat_install_java: false
+tomcat_user: tomcat
+tomcat_group: tomcat
+tomcat_install_path: /app/server
+tomcat_port_shutdown: 8005
+tomcat_port_connector: 8080
+tomcat_port_redirect: 8443
+tomcat_port_ajp: 8009
+tomcat_port_debug: 8000
+tomcat_temp_download_path: /app/down/tomcat/
+
+# gitlab主要配置
+gitlab_external_url: "http://git.ccz.com"
+gitlab_git_data_dir: "/app/data/gitlab/repo"
+gitlab_backup_path: "/app/data/gitlab/bak"
+gitlab_version: 10.6.4
+gitlab_nginx_listen_port: 9000
+
+# nexus
+nexus_version: '3.10.0-04'
+nexus_download_dir: '/app/down/'
+nexus_backup_dir: '/var/nexus-backup'
+nexus_installation_dir: '/opt'
+nexus_data_dir: '/app/data/nexus/'
+nexus_timezone: 'UTC' # java timezone
+nexus_tmp_dir: '/tmp/nexus'
+nexus_restore_log: '/var/log/nexus/nexus-restore.log'
+nexus_backup_log: '/var/log/nexus/nexus-backup.log'
+# Nexus default properties
+nexus_default_port: 9002
+nexus_docker_hosted_port: 9080
+nexus_docker_proxy_port: 9081
+nexus_docker_group_port: 9082
+nexus_default_context_path: '/'
+nexus_admin_password: 'admin888'
+nexus_anonymous_access: false
+# http proxy
+nexus_with_http_proxy: false
+nexus_http_proxy_host: "proxy.example.com"
+nexus_http_proxy_port: 8080
+nexus_http_proxy_username: ""
+nexus_http_proxy_password: ""
+nexus_with_https_proxy: false
+nexus_https_proxy_host: "proxy.example.com"
+nexus_https_proxy_port: 8080
+nexus_https_proxy_username: ""
+nexus_https_proxy_password: ""
+
+
+# jenkins
+jenkins_home: /app/data/jenkins
+jenkins_http_port: 9001
+jenkins_admin_username: admin
+jenkins_admin_password: admin
+
+# openvpn
+openvpn_base_dir: /etc/openvpn
+openvpn_key_dir: /etc/openvpn/keys
+# 4300
+openvpn_port: 1194
+openvpn_server_network: 10.9.0.0
+openvpn_server_netmask: 255.255.255.0
+
+
+# jumpserver
+# 如果为true, 则会在本地安装, 如果不是则使用远程, 此时不在本地或远程安装数据库
+db_install_local: true
+db_host: 127.0.0.1
+db_port: 3306
+db_name: jumpserver
+db_username: jumpserver
+db_passwd: 123456
+# webserver
+http_bind_host: 0.0.0.0
+http_listen_port: 8080
+# redis
+redis_host: 127.0.0.1
+#redis_port: 6379
+#redis_password:
+
+# nodejs ("0.12", "4.x", "5.x", "6.x", "8.x")
+nodejs_version: "8.x"
+
+# redis
+redis_version: 4.0.9
+redis_user: redis
+redis_group: "{{ redis_user }}"
+redis_as_service: true
+## Networking/connection options
+redis_bind: 0.0.0.0
+redis_port: 6379
+redis_password:
+# Max connected clients at a time
+redis_maxclients: 10000
+redis_timeout: 0
+redis_databases: 16
+# 集群, 暂时只考虑单机
+#redis_sentinel_monitors:
+#  - name: master01
+#    host: localhost
+#    port: 6379
+#    quorum: 2
+#    auth_pass: ant1r3z
+#    down_after_milliseconds: 30000
+#    parallel_syncs: 1
+#    failover_timeout: 180000
+#    notification_script: false
+#    client_reconfig_script: false
+
+
+# kafka
+kafka_version: "1.1.0"
+kafka_scala_version: "2.12"
+kafka_mirror: 'http://mirrors.tuna.tsinghua.edu.cn/apache/kafka/'
+kafka_dl_tmp_dir: "/app/down/"
+kafka_install_chdir: "/opt"
+kafka_monit_enabled: true
+kafka_monit_conf_dir: "/etc/monit/conf.d"
+kafka_extra_monit_config: ""
+kafka_pid_directory: "/var/run/"
+kafka_log_directory: "/app/logs/kafka"
+kafka_default_topic_log_directory_prefix: "/app/data/kafka/"
+kafka_brokers:
+- listeners: "PLAINTEXT://:9092"
+  file_basename: "kafka"
+  log_dirs: "/app/logs/kafka-logs"
+kafka_config_contents:
+   # server. e.g. "127.0.0.1:3000,127.0.0.1:3001,127.0.0.1:3002".
+  zookeeper.connect: "localhost:2181"
+
+# mysql
+#mysql_user_home: /root
+#mysql_user_name: root
+#mysql_user_password: root
+#mysql_root_home: /root
+mysql_root_username: root
+mysql_root_password: root
+# MySQL connection settings.
+mysql_port: "3307"
+mysql_bind_address: '0.0.0.0'
+#mysql_skip_name_resolve: no
+mysql_datadir: /app/data/mysql
+#mysql_sql_mode: ''
+mysql_users:
+  - name: admin
+    host: "%"
+    password: admin2018
+    priv: "*.*:ALL,GRANT"
+mysql_packages:
+      - MariaDB
+      - MariaDB-server
+#      - MariaDB-libs
+      - MySQL-python
+      - perl-DBD-MySQL
+mysql_daemon: mariadb
+mysql_log_error: /var/log/mariadb/mariadb.log
+mysql_syslog_tag: mariadb
+mysql_pid_file: /var/run/mariadb/mariadb.pid
+#mysql_daemon: mysqld
+#mysql_packages: ['mysql-server']
+#mysql_log_error: /var/log/mysqld.err
+#mysql_syslog_tag: mysqld
+#mysql_pid_file: /var/run/mysqld/mysqld.pid
+#mysql_socket: /var/lib/mysql/mysql.sock
+
+
+# zookeeper
+zookeeper_version: 3.4.11
+client_port: 2181
+init_limit: 5
+sync_limit: 2
+tick_time: 2000
+data_dir: /app/data/zookeeper
+log_dir: /app/logs/zookeeper
+zookeeper_tarball_dir: /app/down/zookeeper
+zookeeper_dir: "/opt/zookeeper-{{zookeeper_version}}"
+zookeeper_conf_dir: "{{zookeeper_dir}}"
+# 集群
+zookeeper_cluster_ports: "2888:3888"
+zookeeper_hosts:
+  - host: 192.168.19.253
+    id: 1
+  - host: 192.168.19.252
+    id: 2
+  - host: 192.168.19.254
+    id: 3
+
+# mongodb
+mongodb_version: "3.6"
+mongodb_net_bindip: 127.0.0.1
+mongodb_net_maxconns: 65536
+mongodb_net_port: 27017
+mongodb_storage_dbpath: /app/data/mongodb
+

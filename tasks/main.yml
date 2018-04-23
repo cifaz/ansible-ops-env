@@ -1,5 +1,9 @@
-# emtpy
 - name: test install wget
-  yum:
-    name: wget
-  debug: "helloo"
+  debug:
+    msg: "helloo"
+
+- name: install bertvv.dnsmasq
+  import_tasks: bertvv.dnsmasq
+  vars_files:
+    - vars.yml
+
