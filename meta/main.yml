@@ -1,22 +1,22 @@
 ---
 
-dependencies:
-  - williamyeh.oracle-java
-  - geerlingguy.nodejs
-  - debops.dnsmasq
-  - sansible.openvpn
-  - geerlingguy.jenkins
-  - kanedafromparis.xwiki-tomcat
-  - savoirfairelinux.nexus3-oss
-  - cifaz.gitlab-zh
-  - Stouts.mongodb
-  - jasonroyle.rabbitmq
-  - andrewrothstein.kafka
-  - AnsibleShipyard.ansible-zookeeper
-  - ChristopherDavenport.universal-tomcat
-  - geerlingguy.nginx
-  - cifaz.jumpserver
-  - cifaz.zentao
+dependencies: []
+#  - williamyeh.oracle-java
+#  - geerlingguy.nodejs
+#  - debops.dnsmasq
+#  - sansible.openvpn
+#  - geerlingguy.jenkins
+#  - kanedafromparis.xwiki-tomcat
+#  - savoirfairelinux.nexus3-oss
+#  - cifaz.gitlab-zh
+#  - Stouts.mongodb
+#  - jasonroyle.rabbitmq
+#  - andrewrothstein.kafka
+#  - AnsibleShipyard.ansible-zookeeper
+#  - ChristopherDavenport.universal-tomcat
+#  - geerlingguy.nginx
+#  - cifaz.jumpserver
+#  - cifaz.zentao
 galaxy_info:
   author: ccz
   description: 通用的内部测试环境建立工具
